@@ -21,4 +21,9 @@ public class RabbitMQExchangeConfig {
 		return ExchangeBuilder.directExchange("Example2ndExchange") // nome
 				.autoDelete().internal().build();
 	}
+
+	@Bean
+	Exchange newExchange() {
+		return ExchangeBuilder.topicExchange("TopicTestExchange").autoDelete().durable(true).internal().build();
+	}
 }
