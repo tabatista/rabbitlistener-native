@@ -8,11 +8,11 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class RabbitMQExchangeConfig {
+	// tipos de exchange
 
 	@Bean
 	Exchange exampleTopicExchange() {
-		// tipo de exchange - nome
-		return new TopicExchange("ExampleExchange");
+		return new TopicExchange("ExampleExchange"); // nome
 	}
 
 	@Bean
@@ -30,5 +30,11 @@ public class RabbitMQExchangeConfig {
 	@Bean
 	Exchange newFanoutExchange() {
 		return ExchangeBuilder.fanoutExchange("FanoutTestExchange").autoDelete().durable(false).internal().build();
+	}
+
+	@Bean
+	Exchange headersExchange() {
+		return ExchangeBuilder.headersExchange("HeadersExchange").internal().durable(true).ignoreDeclarationExceptions()
+				.build();
 	}
 }
