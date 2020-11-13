@@ -7,6 +7,7 @@ public class RabbitMQMessageListener implements MessageListener {
 
 	@Override
 	public void onMessage(Message message) {
+		
 		System.out.println("message body = [" + new String(message.getBody()) + "]");
 	}
 
